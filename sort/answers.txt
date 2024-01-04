@@ -1,0 +1,22 @@
+sort1 uses: Bubble sort
+
+How do you know?: Time complexity 1: (random & reversed) it takes more time to sort the input when the input is increased -> feature of Bubble sort or Selection sort.
+Time complexity 2: (reversed) it takes significantly less time to sort the sorted list, which is the one of the key feature of bubble sort.
+
+
+sort2 uses: Merger sort
+
+How do you know?: Sort2 perform well on both sorted and reversed lists, and also scales welll with size of the input.
+This behavior is characteristic of Merge Sort, which has a time complexity of O(n log n) in all cases.
+That is why I thought sort2 is merge sort.
+
+
+
+sort3 uses: Selection sort
+
+How do you know?: Sort3 perform well on sorted and reversed list, but the performance will be not well when the input is increased.
+It has time complexity O(n^2) in all cases.
+When I compared with sort1 and sort3, I notced that sort1 perform better for sorted list than sort3 even if the input is increased.
+Sort3 perform slow when the input is increased even for the sorted list.
+
+

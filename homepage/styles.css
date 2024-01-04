@@ -1,0 +1,115 @@
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-brand, .nav-link {
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .navbar-brand:hover {
+    color: #0056b3;
+}
+
+.special-content {
+    background-color: #f8f9fa;
+    border-left: 5px solid #007bff;
+    padding: 1rem;
+}
+
+/* Dark theme styles */
+.dark-theme {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+.dark-theme .navbar, .dark-theme .footer {
+    background-color: #222;
+}
+
+.dark-theme .nav-link, .dark-theme .navbar-brand, .dark-theme .footer {
+    color: #f8f9fa;
+}
+
+/* Footer styling */
+footer {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+footer a {
+    color: #007bff;
+}
+
+footer a:hover {
+    color: #0056b3;
+}
+
+/* Form styling */
+.form-control, .btn-primary {
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Add smooth transition to all elements */
+* {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark theme form styling */
+.dark-theme .form-control {
+    background-color: #555;
+    color: #fff;
+    border-color: #444;
+}
+
+.dark-theme .form-control:focus {
+    background-color: #666;
+    color: #fff;
+    border-color: #555;
+    box-shadow: none;
+}
+
+/* Adjust padding for main content */
+main {
+    padding-bottom: 2rem;
+}
+
+/* Style the dark mode toggle switch */
+.form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.form-check-label {
+    user-select: none;
+}
+
+/* Style the footer to stick to the bottom */
+.footer {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Style headers */
+h1, h2, h3 {
+    color: #212529;
+}
+
+/* Dark theme headers */
+.dark-theme h1, .dark-theme h2, .dark-theme h3 {
+    color: #f8f9fa;
+}

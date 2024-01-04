@@ -1,0 +1,51 @@
+/* Existing styles */
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    background-color: #ffffff;
+    border: none;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #343a40; /* Dark background */
+    color: #f8f9fa; /* Light text color */
+}
+
+.dark-mode .card {
+    background-color: #495057; /* Dark card background */
+}
+
+.dark-mode .list-group-item {
+    color: #000000; 
+}
+
+/* New styles for priority levels */
+.task-low {
+    background-color: #d4edda; /* Light green for low priority */
+}
+
+.task-medium {
+    background-color: #fff3cd; /* Light yellow for medium priority */
+}
+
+.task-high {
+    background-color: #f8d7da; /* Light red for high priority */
+}
+
+
+/* fade-out effect for complements word */
+.fade-out {
+    animation: fadeOut 2s;
+    -webkit-animation: fadeOut 2s;
+    -moz-animation: fadeOut 2s;
+    -o-animation: fadeOut 2s;
+    -ms-animation: fadeOut 2s;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}

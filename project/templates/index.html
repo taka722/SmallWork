@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Task Manager</a>
+        <button id="dark-mode-toggle" class="btn btn-dark">Dark Mode</button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                {% if not logged_in %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Remove the entire container if it's just for demonstration -->
+    <div class="container mt-4">
+        <!-- ... -->
+    </div>
+
+    <!-- Remove this if it was only for demonstration -->
+    <div class="d-none d-md-block mt-4">
+        <!-- ... -->
+    </div>
+
+
+
+    <div class="container" data-aos="fade-up">
+        <h1 class="text-center mt-4">Task Manager</h1>
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% if compliment %}
+            <div class="alert alert-success text-center" id="compliment">
+                {{ compliment }}
+            </div>
+        {% endif %}
+        {% if logged_in %}
+            <!-- Task Input Form -->
+            <div class="card card-body mt-4">
+                <form action="{{ url_for('add_task') }}" method="POST" action="{{ url_for('add_task') }}">
+                    <div class="form-group">
+                        <input type="text" name="title" class="form-control" placeholder="Task Title" required oninput="validateTitle(this)">
+                        <small id="titleError" class="form-text text-danger" style="display: none;">Title must be at least 3 characters long.</small>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="description" class="form-control" placeholder="Task Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select name="priority" id="priority" class="form-control">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low" selected>Low</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </form>
+            </div>
+            <!-- Task List -->
+            <ul class="list-group mt-4">
+                {% for task in tasks %}
+                <li class="list-group-item {{ 'task-low' if task.priority == 'Low' else 'task-medium' if task.priority == 'Medium' else 'task-high' }}">
+                    {% if task.completed %}
+                        <s>{{ task.title }} - {{ task.description }}</s>
+                    {% else %}
+                        {{ task.title }} - {{ task.description }}
+                    {% endif %}
+                    - <strong>Priority: {{ task.priority }}</strong>
+                    <form action="{{ url_for('delete_task', task_id=task.id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                    {% if not task.completed %}
+                        <form action="{{ url_for('complete_task', task_id=task.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-success btn-sm">Complete</button>
+                        </form>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-center mt-4">Please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a> to manage your tasks.</p>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

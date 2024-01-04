@@ -1,0 +1,37 @@
+Times:
+
+10 simulations:　　0m0.029s
+10 simulations:　　0m0.028s
+
+100 simulations: 0m0.028s
+100 simulations: 0m0.028s
+
+
+1000 simulations: 0m0.083s
+1000 simulations: 0m0.033s
+
+10000 simulations: 0m0.093s
+10000 simulations: 0m0.088s
+
+100000 simulations: 0m0.763s
+100000 simulations: 0m0.702s
+
+1000000 simulations: 0m6.986s
+1000000 simulations: 0m6.781s
+
+
+Questions:
+
+Which predictions, if any, proved incorrect as you increased the number of simulations?: TODO
+I feel 10 simulations provide incorrect predictions.
+That is because whne I did 10 simulations, Belgium had a 40 percent cahnce of winning and Denmark had 20 percent chance.
+However, when i increased the number of simulations, Belgium's chanve of winning became 21.2 percent and Denmark's chance became 3.2 percent.
+This result provided that low number of simulations can give wrong predictions for chance of winning.
+
+
+Suppose you're charged a fee for each second of compute time your program uses.
+After how many simulations would you call the predictions "good enough"?: TODO
+I guess 100000 simulations are enough number for predictions. That is because my predictions started to stabilize arount 100000 simulations,
+and there is little changes the predictions from 100000 to 1000000 simulations.
+So, I feel 100000 simulations might be good enogh for predictions.
+

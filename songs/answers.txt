@@ -1,0 +1,28 @@
+If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+
+According to the result, those songs basically have high score about average energy, danceability, valence.
+This suggests an audio aura that could be characterized as "Vibrant" or "Exuberant."
+The listener whose top songs are characterized by these traits might be someone who enjoys lively and spirited music that energizes and uplifts.
+
+
+Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener.
+What better ways of calculating this aura would you propose?
+
+I think the results may not fully capture the nuanced emotional responses that different songs can evoke in the listener.
+For example:
+The calculations does not containt the listener's personal experiences or memories associated with the songs,
+which could significantly influence how the music is perceived.
+And also this result does not contain the Music diversity : People often listen to a variety of music that suits different moods and activities,
+and Emotional Connection: Emotional responses to music are highly personal and can be influenced by lyrics, memories associated with the song, or even external factors such as the opinions of friends and family.
+These nuances are not captured by quantitative metrics like danceability, energy, and valence, and Cultural and Language Factors: The aura calculation may overlook cultural significance and language.
+Songs in a listener's non-native language may be enjoyed differently compared to songs in their native language.
+
+There are several ways for aura calculations.
+For example, Lyric analysis: I guess people also care about the meaning of the lyrics,
+and it is important for aura cluculations to understand the lyrics and emotional tone.
+Culutural sensitivity :  Take into account the cultural significance of the music,
+which could be factored into how songs are weighted in the aura calculation.
+
+
+
+

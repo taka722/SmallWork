@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+        function checkAnswerMC(choice, correct, questionId) {
+            // Select all buttons for this specific question using the questionId
+            var buttons = document.querySelectorAll('.mc-button' + questionId);
+            buttons = document.querySelectorAll('.mc-button'); // Select all buttons regardless of question
+            buttons.forEach(function(button) {
+                // Disable all buttons after one is clicked
+                // Disable the button if it's part of the current question
+                if (button.id.startsWith('choice' + questionId + '-')) {
+                    button.disabled = true;
+                }
+            });
+            // Get the feedback paragraph for this specific question
+            var feedback = document.getElementById('mc-feedback' + questionId);
+
+            // Check if the button clicked (choice) is the correct answer
+            if (choice === correct) {
+                document.getElementById(choice).style.backgroundColor = 'green';
+                feedback.textContent = 'Correct!';
+                feedback.style.color = 'green';
+            } else {
+                // If it's not correct, find the correct button and make it green
+                // var correctButton = document.getElementById(correct);
+                // correctButton.style.backgroundColor = 'green';
+
+                // Make the clicked (wrong) button red
+                document.getElementById(choice).style.backgroundColor = 'red';
+                feedback.textContent = 'Incorrect';
+                feedback.style.color = 'red';
+            }
+        }
+
+
+
+        function checkAnswerFR() {
+            var answer = document.getElementById('fr-answer').value;
+            var feedback = document.getElementById('fr-feedback');
+            if (answer.trim().toLowerCase() === 'leonardo da vinci') { // replace 'correct answer' with your actual answer
+                document.getElementById('fr-answer').style.backgroundColor = 'green';
+                feedback.textContent = 'Correct!';
+                feedback.style.color = 'green';
+            } else {
+                document.getElementById('fr-answer').style.backgroundColor = 'red';
+                feedback.textContent = 'Incorrect';
+                feedback.style.color = 'red';
+            }
+        }
+        function checkAnswerFR2() {
+            var answer = document.getElementById('fr-answer2').value;
+            var feedback = document.getElementById('fr-feedback2');
+            if (answer.trim().toLowerCase() === 'h2o') {
+                document.getElementById('fr-answer2').style.backgroundColor = 'green';
+                feedback.textContent = 'Correct!';
+                feedback.style.color = 'green';
+            } else {
+                document.getElementById('fr-answer2').style.backgroundColor = 'red';
+                feedback.textContent = 'Incorrect';
+                feedback.style.color = 'red';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <!-- Question 1 -->
+            <button id="choice1-1" class="mc-button" onclick="checkAnswerMC('choice1-1', 'choice1-2', '1')">Tokyo</button>
+            <button id="choice1-2" class="mc-button" onclick="checkAnswerMC('choice1-2', 'choice1-2', '1')">Paris</button>
+            <button id="choice1-3" class="mc-button" onclick="checkAnswerMC('choice1-3', 'choice1-2', '1')">New York</button>
+            <p id="mc-feedback1"></p>
+
+
+            <!-- Question 2 -->
+            <h3>Which element has the chemical symbol 'O'?</h3>
+            <button id="choice2-1" class="mc-button" onclick="checkAnswerMC('choice2-1', 'choice2-3', '2')">Hydrogen</button>
+            <button id="choice2-2" class="mc-button" onclick="checkAnswerMC('choice2-2', 'choice2-3', '2')">Carbon</button>
+            <button id="choice2-3" class="mc-button" onclick="checkAnswerMC('choice2-3', 'choice2-3', '2')">Oxygen</button>
+            <p id="mc-feedback2"></p>
+
+            <!-- Question 3 -->
+            <h3>3. What is the largest planet in our Solar System?</h3>
+            <button id="choice3-1" class="mc-button" onclick="checkAnswerMC('choice3-1', 'choice3-2', '3')">Mars</button>
+            <button id="choice3-2" class="mc-button" onclick="checkAnswerMC('choice3-2', 'choice3-2', '3')">Jupiter</button>
+            <button id="choice3-3" class="mc-button" onclick="checkAnswerMC('choice3-3', 'choice3-2', '3')">Saturn</button>
+            <p id="mc-feedback3"></p>
+
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>Who painted the Mona Lisa?</h3>
+            <input type="text" id="fr-answer" />
+            <button onclick="checkAnswerFR()">Confirm</button>
+            <p id="fr-feedback"></p>
+
+            <h3>What is the chemical formula for water?</h3>
+            <input type="text" id="fr-answer2" />
+            <button onclick="checkAnswerFR2()">Confirm</button>
+            <p id="fr-feedback2"></p>
+        </div>
+    </div>
+</body>
+</html>
